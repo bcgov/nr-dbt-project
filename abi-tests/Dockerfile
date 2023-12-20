@@ -11,12 +11,13 @@ RUN pip3 install -r requirements.txt
 
 COPY /fta_data_processing /usr/app/dbt/
 
-COPY profiles.yml /root/.dbt/profiles.yml
+#COPY profiles.yml /root/.dbt/profiles.yml
+COPY profiles.yml /usr/app/dbt/profiles.yml
 
 COPY dbt_project.yml /app/dbt_project.yml
 
 WORKDIR /usr/app/dbt/
 
-CMD ["dbt", "snapshot"]
+CMD ["dbt", "snapshot","--profile-dir","/usr/app/dbt"]
 
 

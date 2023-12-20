@@ -9,7 +9,7 @@
         )
     }}
 
-SELECT * FROM app_rrs1.resource_road_tenure
+SELECT * FROM rrs_replication.resource_road_tenure
 
 {% endsnapshot %}
 
@@ -24,7 +24,7 @@ SELECT * FROM app_rrs1.resource_road_tenure
         )
     }}
 
-SELECT * FROM app_rrs1.road_appl_map_feature
+SELECT * FROM rrs_replication.road_appl_map_feature
 
 {% endsnapshot %}
 
@@ -39,7 +39,7 @@ SELECT * FROM app_rrs1.road_appl_map_feature
         )
     }}
 
-SELECT * FROM app_rrs1.road_application
+SELECT * FROM rrs_replication.road_application
 
 {% endsnapshot %}
 
@@ -54,7 +54,7 @@ SELECT * FROM app_rrs1.road_application
         )
     }}
 
-SELECT * FROM app_rrs1.road_application_status_code
+SELECT * FROM rrs_replication.road_application_status_code
 
 {% endsnapshot %}
 
@@ -69,7 +69,7 @@ SELECT * FROM app_rrs1.road_application_status_code
         )
     }}
 
-SELECT * FROM app_rrs1.road_feature_class_sdw
+SELECT * FROM rrs_replication.road_feature_class_sdw
 
 {% endsnapshot %}
 
@@ -84,7 +84,7 @@ SELECT * FROM app_rrs1.road_feature_class_sdw
         )
     }}
 
-SELECT * FROM app_rrs1.road_org_unit_sdw
+SELECT * FROM rrs_replication.road_org_unit_sdw
 
 {% endsnapshot %}
 
@@ -99,7 +99,7 @@ SELECT * FROM app_rrs1.road_org_unit_sdw
         )
     }}
 
-SELECT * FROM app_rrs1.road_section
+SELECT * FROM rrs_replication.road_section
 
 {% endsnapshot %}
 
@@ -114,7 +114,7 @@ SELECT * FROM app_rrs1.road_section
         )
     }}
 
-SELECT * FROM app_rrs1.road_section_status_code
+SELECT * FROM rrs_replication.road_section_status_code
 
 {% endsnapshot %}
 
@@ -129,7 +129,7 @@ SELECT * FROM app_rrs1.road_section_status_code
         )
     }}
 
-SELECT * FROM app_rrs1.road_submission
+SELECT * FROM rrs_replication.road_submission
 
 {% endsnapshot %}
 
@@ -144,7 +144,7 @@ SELECT * FROM app_rrs1.road_submission
         )
     }}
 
-SELECT * FROM app_rrs1.road_tenure_status_code
+SELECT * FROM rrs_replication.road_tenure_status_code
 
 {% endsnapshot %}
 
@@ -159,7 +159,7 @@ SELECT * FROM app_rrs1.road_tenure_status_code
         )
     }}
 
-SELECT * FROM app_rrs1.road_tenure_type_code
+SELECT * FROM rrs_replication.road_tenure_type_code
 
 {% endsnapshot %}
 
@@ -174,6 +174,6 @@ SELECT * FROM app_rrs1.road_tenure_type_code
         )
     }}
 
-SELECT * FROM app_rrs1.submission_status_code
+SELECT * FROM rrs_replication.submission_status_code
 
 {% endsnapshot %}
