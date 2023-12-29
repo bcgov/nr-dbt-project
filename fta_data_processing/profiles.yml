@@ -57,7 +57,7 @@ fta_data_processing:
       host: theory.bcgov
       port: 5433
       user: ods_admin_user
-      pass: Y7ss#by641
+      pass: ${ODS_PASSWORD}
       dbname: odsdev
       schema: fta_replication
 
