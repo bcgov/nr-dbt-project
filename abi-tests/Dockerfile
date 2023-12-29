@@ -2,6 +2,8 @@
 
 FROM python:3.11.4-slim-buster
 
+# RUN chmod -R g+rwX /root
+
 RUN apt-get update \
     && apt-get -y install libpq-dev gcc 
 
@@ -11,15 +13,14 @@ RUN pip3 install -r requirements.txt
 
 COPY /fta_data_processing /usr/app/dbt/
 
-COPY profiles.yml /root/.dbt/profiles.yml
+# COPY profiles.yml /root/.dbt/profiles.yml
 
-RUN chmod -R g+rwX /root
-#COPY profiles.yml /usr/app/dbt/profiles.yml
+COPY profiles.yml /usr/app/dbt/.dbt/profiles.yml
 
 COPY dbt_project.yml /app/dbt_project.yml
 
 WORKDIR /usr/app/dbt/
 
-CMD ["dbt", "snapshot"]
+CMD ["dbt", "snapshot", "--profiles-dir", "/usr/app/dbt/.dbt"]
 
 
