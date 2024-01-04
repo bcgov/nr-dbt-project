@@ -1,62 +1,19 @@
-##
-#  Generic dockerfile for dbt image building.
-#  See README for operational details
-##
+# Make sure to have .profiles.yml under the project folder (e.g. fta_data_processing)
 
-# Top level build args
-ARG build_for=linux/amd64
+FROM ghcr.io/dbt-labs/dbt-postgres
 
-##
-# base image (abstract)
-##
-# Please do not upgrade beyond python3.10.7 currently as dbt-spark does not support
-# 3.11py and images do not get made properly
-FROM --platform=$build_for python:3.10.7-slim-bullseye as base
+RUN chmod -R g+rwX /usr
 
-# N.B. The refs updated automagically every release via bumpversion
-# N.B. dbt-postgres is currently found in the core codebase so a value of dbt-core@<some_version> is correct
+COPY /fta_data_processing /usr/app/dbt/
 
-ARG dbt_core_ref=dbt-core@v1.8.0a1
-ARG dbt_postgres_ref=dbt-core@v1.8.0a1
-ARG dbt_redshift_ref=dbt-redshift@v1.8.0a1
-ARG dbt_bigquery_ref=dbt-bigquery@v1.8.0a1
-ARG dbt_snowflake_ref=dbt-snowflake@v1.8.0a1
-ARG dbt_spark_ref=dbt-spark@v1.8.0a1
-# special case args
-ARG dbt_spark_version=all
-ARG dbt_third_party
+# usually would be: COPY profiles.yml /root/.dbt/profiles.yml
 
-# System setup
-RUN apt-get update \
-  && apt-get dist-upgrade -y \
-  && apt-get install -y --no-install-recommends \
-    git \
-    ssh-client \
-    software-properties-common \
-    make \
-    build-essential \
-    ca-certificates \
-    libpq-dev \
-  && apt-get clean \
-  && rm -rf \
-    /var/lib/apt/lists/* \
-    /tmp/* \
-    /var/tmp/*
+COPY fta_data_processing/profiles.yml /usr/app/dbt/.dbt/profiles.yml
 
-# Env vars
-ENV PYTHONIOENCODING=utf-8
-ENV LANG=C.UTF-8
+COPY fta_data_processing/dbt_project.yml /app/dbt_project.yml
 
-# Update python
-RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir
+WORKDIR /usr/app/dbt/
 
-# Set docker basics
+# dbt is already initiated
 
-ENTRYPOINT ["dbt"]
-
-##
-# dbt-postgres
-##
-FROM base as dbt-postgres
-RUN python -m pip install --no-cache-dir "git+https://github.com/dbt-labs/${dbt_postgres_ref}#egg=dbt-postgres&subdirectory=plugins/postgres"
-
+CMD ["snapshot", "--profiles-dir", "/usr/app/dbt/.dbt"]
