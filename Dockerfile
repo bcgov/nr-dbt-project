@@ -16,4 +16,4 @@ WORKDIR /usr/app/dbt/
 
 # dbt is already initiated
 
-CMD ["snapshot", "--profiles-dir", "/usr/app/dbt/.dbt"]
+CMD ["--help"]
