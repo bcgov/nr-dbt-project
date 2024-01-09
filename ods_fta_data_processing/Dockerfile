@@ -4,9 +4,10 @@ FROM ghcr.io/dbt-labs/dbt-postgres
 
 RUN chmod -R g+rwX /usr
 
-COPY /* /usr/app/dbt/
+COPY .  /usr/app/dbt/
 
 # usually would be: COPY profiles.yml /root/.dbt/profiles.yml
+
 
 COPY profiles.yml /usr/app/dbt/.dbt/profiles.yml
 
