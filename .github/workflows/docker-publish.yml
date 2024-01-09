@@ -2,9 +2,9 @@ name: Push to GHCR
 
 on:
   push:
-    branches: [ "oc-adjustments" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "oc-adjustments" ]
+    branches: [ "main" ]
 
 env:
   REGISTRY: ghcr.io
