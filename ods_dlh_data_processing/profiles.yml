@@ -73,7 +73,7 @@ fta_data_processing:
 
   target: dev
 
-ods_fta_data_processing:
+ods_dlh_data_processing:
   outputs:
 
     dev:
@@ -82,7 +82,7 @@ ods_fta_data_processing:
       host: theory.bcgov
       port: 5443
       user: dlh_ods_mapping_user
-      pass: ${ODS_PASSWORD}
+      pass: Zygg34ty7hsi
       dbname: lhousedev
       schema: fdw_ods_rrs_replication
 
