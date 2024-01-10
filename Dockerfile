@@ -1,16 +1,14 @@
-# Make sure to have .profiles.yml under the project folder (e.g. fta_data_processing)
-
 FROM ghcr.io/dbt-labs/dbt-postgres
 
 RUN chmod -R g+rwX /usr
 
-COPY /ods_fta_data_processing /usr/app/dbt/
+COPY /ods_dlh_data_processing /usr/app/dbt/
 
 # usually would be: COPY profiles.yml /root/.dbt/profiles.yml
 
-COPY ods_fta_data_processing/profiles.yml /usr/app/dbt/.dbt/profiles.yml
+COPY ods_dlh_data_processing/profiles.yml /usr/app/dbt/.dbt/profiles.yml
 
-COPY ods_fta_data_processing/dbt_project.yml /app/dbt_project.yml
+COPY ods_dlh_data_processing/dbt_project.yml /app/dbt_project.yml
 
 WORKDIR /usr/app/dbt/
 

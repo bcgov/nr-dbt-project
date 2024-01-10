@@ -82,7 +82,7 @@ ods_dlh_data_processing:
       host: theory.bcgov
       port: 5443
       user: dlh_ods_mapping_user
-      pass: Zygg34ty7hsi
+      pass: ${LH_PASSWORD}
       dbname: lhousedev
       schema: fdw_ods_rrs_replication
 
