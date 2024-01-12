@@ -7,7 +7,7 @@ housing_connectivity_initiative:
       host: theory.bcgov
       port: 5433
       user: ods_admin_user
-      pass: ${ODS_PASSWORD}
+      pass: ${{ env.ODS_PASSWORD }}
       dbname: odsdev
       schema: public
 
@@ -32,7 +32,7 @@ rrs_xnrs_data_processing:
       host: theory.bcgov
       port: 5433
       user: ods_admin_user
-      pass: ${ODS_PASSWORD}
+      pass: ${{ env.ODS_PASSWORD }}
       dbname: odsdev
       schema: app_rrs1
 
@@ -57,7 +57,7 @@ fta_data_processing:
       host: theory.bcgov
       port: 5433
       user: ods_admin_user
-      pass: ${ODS_PASSWORD}
+      pass: ${{ env.ODS_PASSWORD }}
       dbname: odsdev
       schema: fta_replication
 
