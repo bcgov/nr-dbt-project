@@ -81,7 +81,7 @@ ods_dlh_data_processing:
       threads: 2
       host: theory.bcgov
       port: 5443
-      user: dlh_admin_user # dlh_ods_mapping_user not working 
+      user: dlh_admin_user
       pass: ${{ env.LH_PASSWORD }}
       dbname: lhousedev
       schema: fdw_ods_rrs_replication
