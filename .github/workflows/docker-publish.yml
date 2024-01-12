@@ -13,7 +13,6 @@ env:
 
 jobs:
   build:
-  
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -50,10 +49,6 @@ jobs:
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
-
-        # Abi: this is the password within the profiles.yml
-        env:
-          ODS_PASSWORD: '${{ secrets.ODS_PASSWORD }}'
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
@@ -61,8 +56,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-        # Abi: e.g. docker build --build-arg ODS_PASSWORD=ODS_PASSWORD
-          build-args: ODS_PASSWORD=$ODS_PASSWORD
 
       - name: Sign the published Docker image
         if: ${{ github.event_name != 'pull_request' }}
