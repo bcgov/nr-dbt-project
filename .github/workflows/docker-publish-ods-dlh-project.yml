@@ -7,7 +7,6 @@ on:
     branches: [ "main" ]
 
 env:
-  # Abi: bcgov/nr-dbt-project/
   # Abi: image name is bcgov/nr-dbt-project/ods_dlh_data_processing:main
   REGISTRY: ghcr.io
   DBT_PATH: /ods_dlh_data_processing
@@ -26,8 +25,7 @@ jobs:
         uses: actions/checkout@v3
       # Abi: this sets the working directory to the specific DBT folder
         with:
-          path: 'path/to/your/folder'
-
+          path: ${{ env.DBT_PATH }}
 
       - name: Install cosign
         if: github.event_name != 'pull_request'
