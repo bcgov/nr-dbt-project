@@ -9,7 +9,7 @@ on:
 env:
   # Abi: image name is bcgov/nr-dbt-project/ods-dlh:main
   REGISTRY: ghcr.io
-  DBT_PATH: /ods_dlh_data_processing
+  DBT_PATH: ods_dlh_data_processing
   IMAGE_NAME: ${{ github.repository }}/ods-dlh
 
 jobs:
