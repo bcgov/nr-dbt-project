@@ -11,7 +11,8 @@
 
 with source_data as (
 
-    select a.*,26 as Total_Count from fdw_ods_rrs_replication.road_tenure_type_code a
+    --select a.*,26 as Total_Count from fdw_ods_rrs_replication.road_tenure_type_code a
+    select a.*,26 as Total_Count from {{ var('db_fdw_rrs') }}.road_tenure_type_code a
 
 )
 
