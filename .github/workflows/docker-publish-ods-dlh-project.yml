@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 env:
-  # Abi: image name is bcgov/nr-dbt-project/ods-dlh:main
+  # Abi: image name is ghcr.io/bcgov/nr-dbt-project-ods-dlh:main
   REGISTRY: ghcr.io
   DBT_PATH: ods_dlh_data_processing
   IMAGE_NAME: ${{ github.repository }}-ods-dlh
