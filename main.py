@@ -87,7 +87,7 @@ with DAG(
     #DAG = """{DAG}"""
     DAG = str(DAG)
 
-    g = Github(GH_TOKEN_SECRET)
+    g = Github(GITHUB_TOKEN_SECRET)
     repo = g.get_repo('bcgov/nr-airflow')
 
     repo.create_file(f'dags/{dag_id}.py', 'upload dags', DAG, branch='ui-testing')
@@ -112,7 +112,7 @@ def extract_names(input_list):
 
 # Main function to orchestrate the process
 def main():
-    g = Github(GH_TOKEN_SECRET)
+    g = Github(GITHUB_TOKEN_SECRET)
     repo = g.get_repo("bcgov/nr-airflow")
     contents = repo.get_contents("/dags", ref="ui-testing")
     existing_dags= [c.path for c in contents]
