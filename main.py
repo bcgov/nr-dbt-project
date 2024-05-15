@@ -9,7 +9,7 @@ try:
     ODS_USER = os.environ["ODS_USER"]
     ODS_PASSWORD = os.environ["ODS_PASSWORD"]
     ODS_DB = os.environ["ODS_DB"]
-    GH_TOKEN_SECRET = os.environ("GH_TOKEN_SECRET")
+    GH_TOKEN_SECRET = os.environ["GH_TOKEN_SECRET"]
 
 except KeyError:
     SOME_SECRET = "Token not available!"
